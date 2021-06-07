@@ -31,6 +31,7 @@ public class HealthScreen extends Screens{
     //The string that is updated with the status of the OS
     private String status;
 
+    //Sets the os variable
     public HealthScreen() {
         os = Storage.getSystem();
     }
@@ -40,6 +41,7 @@ public class HealthScreen extends Screens{
         return pane;
     }
 
+    //creates the health screen
     @Override
     public void setPane() {
         Rectangle r = new Rectangle(650,450);

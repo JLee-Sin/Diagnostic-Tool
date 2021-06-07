@@ -26,6 +26,7 @@ public class NetworkingScreen extends Screens{
     private Gauge trans;
     private Gauge rec;
 
+    //sets the network variable
     public NetworkingScreen() {
         n = Storage.getNetwork();
     }
@@ -35,6 +36,7 @@ public class NetworkingScreen extends Screens{
         return pane;
     }
 
+    //Creates the network screen
     @Override
     public void setPane() {
         Rectangle netInfo = new Rectangle(550,400);
@@ -140,6 +142,7 @@ public class NetworkingScreen extends Screens{
         liveUpdate();
     }
 
+    //Starts an infinite loop that constantly updates the network information
     private void liveUpdate() {
         Thread t2 = new Thread(new Runnable() {
             @Override

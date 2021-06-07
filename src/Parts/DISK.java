@@ -14,6 +14,7 @@ public class DISK extends coreComponents {
     //The name of the disk
     private String Name;
 
+    //Sets the information for a disk in the system
     public DISK(String name, List<Temperature> temp) {
         Name = name;
         for(Temperature te : temp) {
@@ -26,6 +27,7 @@ public class DISK extends coreComponents {
         }
     }
 
+    //Updates the disk's temperature
     public void updateTemp() {
         List<Disk> disks = JSensors.get.components().disks;
         if(disks.size() > 0) {

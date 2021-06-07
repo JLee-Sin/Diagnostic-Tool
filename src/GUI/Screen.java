@@ -48,6 +48,7 @@ public class Screen {
     //The boolean used to see if the screen is minimized
     private boolean min;
 
+    //Starts the gui and creates the side bar as well as sets up the close to tray feature
     public Screen(Stage s) {
         Thread t = new Thread(new Runnable() {
             @Override
@@ -220,9 +221,9 @@ public class Screen {
             sidebar.setPickOnBounds(false);
 
             stage.setResizable(false);
-        }
+    }
 
-
+    //Changes the screen based on user input
     private void changeScene() {
         root = new StackPane(mainContent, sidebar);
         root.setMinSize(900,500);
@@ -233,12 +234,14 @@ public class Screen {
         stage.show();
     }
 
+    //sets all the buttons background color to white
     private void allButtonsWhite() {
         for(int i = 0; i < jfxButtons.length; i++) {
             jfxButtons[i].setStyle("-fx-background-color: #ffff");
         }
     }
 
+    //Sets up the home screen and colors the appropriate button
     private void setHome() {
         mainContent = H.getPane();
         changeScene();
@@ -246,6 +249,7 @@ public class Screen {
         jfxButtons[0].setStyle("-fx-background-color: #55f");
     }
 
+    //Sets up the hardware screen and colors the appropriate button
     private void setHardware() {
         mainContent = HW.getPane();
         changeScene();
@@ -253,6 +257,7 @@ public class Screen {
         jfxButtons[1].setStyle("-fx-background-color: #55f");
     }
 
+    //Sets up the health screen and colors the appropriate button
     private void setHealth() {
         mainContent = HS.getPane();
         changeScene();
@@ -260,6 +265,7 @@ public class Screen {
         jfxButtons[2].setStyle("-fx-background-color: #55f");
     }
 
+    //Sets up the network screen and colors the appropriate button
     private void setNetworking() {
         mainContent = N.getPane();
         changeScene();
@@ -267,6 +273,7 @@ public class Screen {
         jfxButtons[3].setStyle("-fx-background-color: #55f");
     }
 
+    //Sets up the testing screen and colors the appropriate button
     private void setTest() {
         mainContent = T.getPane();
         changeScene();

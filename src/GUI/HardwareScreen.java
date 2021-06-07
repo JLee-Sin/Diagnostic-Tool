@@ -46,6 +46,7 @@ public class HardwareScreen extends Screens{
     private ImageView driveIcon = new ImageView("Drive.png");
     private ImageView[] driveIcons;
 
+    //Sets the variables used by the hardware screen
     public HardwareScreen() {
         c = Storage.getCpu();
         g = Storage.getGpu();
@@ -66,6 +67,7 @@ public class HardwareScreen extends Screens{
         return pane;
     }
 
+    //Creates the hardware screen
     @Override
     public void setPane() {
         Rectangle rC = new Rectangle(600,225);
@@ -231,6 +233,7 @@ public class HardwareScreen extends Screens{
         t.start();
     }
 
+    //Starts an infinite loop that constantly update the temperature of the each component
     private void liveUpdate() {
         while(true) {
             c.updateTemp();

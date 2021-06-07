@@ -20,6 +20,7 @@ public class DiskList {
     //The properly formatted amount of storage in the system in gigabytes or terabytes
     private String totalSize;
 
+    //Creates a list of the disks in the system
     public DiskList() {
         rawSize = new File("/").getTotalSpace() / Math.pow(10,-12);
         //System.out.println(rawSize);
@@ -45,6 +46,7 @@ public class DiskList {
         }
     }
 
+    //gets the average temperature of all the disks
     public double getAverageTemp() {
         int num = 0;
         int div = 0;
@@ -61,6 +63,7 @@ public class DiskList {
         return diskList;
     }
 
+    //A helper method to round the amount of data in each disk
     private double round (double value, int precision) {
         int scale = (int) Math.pow(10, precision);
         return (double) Math.round(value * scale) / scale;
@@ -70,6 +73,7 @@ public class DiskList {
         return totalSize;
     }
 
+    //Updates all of the disks' temperatures
     public void UpdateTemps() {
         for(DISK disk : diskList) {
             disk.updateTemp();

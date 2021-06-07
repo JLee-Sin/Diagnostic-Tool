@@ -32,6 +32,7 @@ public class Tester {
     //The latest benchmark score
     private int latestBench;
 
+    //Creates the tester and sets its variables
     public Tester() {
         time = 0;
         on = false;
@@ -51,6 +52,7 @@ public class Tester {
         }
     }
 
+    //Starts a stress test
     private void stress(int threads) {
         Threads = threads;
         System.out.println("testing");
@@ -74,6 +76,7 @@ public class Tester {
         }
     }
 
+    //Acts as a toggle for benchmarks and stress tests
     public void toggleOn() {
         if(!on) {
             on = !on;
@@ -86,7 +89,7 @@ public class Tester {
         }
     }
 
-
+    //Starts a benchmark
     public int bench(int thread) throws InterruptedException, IOException {
         Thread[] threads = new Thread[thread];
         for(int i = 0; i < thread; i++) {
@@ -115,7 +118,7 @@ public class Tester {
         return latestBench;
     }
 
-
+    //Saves a benchmark score
     private void save(int score) throws IOException {
         if(score < read()) {
             try (DataOutputStream dos = new DataOutputStream(new FileOutputStream(file))) {
@@ -132,6 +135,7 @@ public class Tester {
         }
     }
 
+    //Reads a benchmark score and saves it inside the program
     private int read() throws IOException{
         if (!new File("./Sys.txt").canRead()) {
             return 0;

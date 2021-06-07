@@ -21,6 +21,7 @@ public class CPU extends coreComponents{
     //A static representation of the temperature variable used for in-package calculations
     private static double sTemp;
 
+    //Sets the information for the system's cpu
     public CPU() {
         Components components = JSensors.get.components();
         List<Cpu> cpus = components.cpus;
@@ -64,6 +65,7 @@ public class CPU extends coreComponents{
         return Name;
     }
 
+    //updates the cpu's temperature
     public void updateTemp() {
         List<Cpu> cpus = JSensors.get.components().cpus;
         if(cpus.size() > 0) {

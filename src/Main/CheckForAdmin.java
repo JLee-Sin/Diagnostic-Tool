@@ -15,6 +15,7 @@ import static javafx.stage.StageStyle.UTILITY;
 //This class is just responsible for testing to see if the user is running the program as an administrator and informs them if they are not
 public class CheckForAdmin {
 
+    //If the user is an admin start the program otherwise throw an error screen
     public CheckForAdmin(Stage stage) {
         if(!isAdmin()) {
             stage.initStyle(UTILITY);
@@ -40,6 +41,7 @@ public class CheckForAdmin {
         }
     }
 
+    //A helper method that checks if the user is an administrator
     private static boolean isAdmin() {
         try {
             ProcessBuilder processBuilder = new ProcessBuilder("cmd.exe");

@@ -23,6 +23,7 @@ public class Networking {
     //The rate at which the system transmits data to the network
     private String transmitRate;
 
+    //Sets the variables pertaining to the connected network
     public Networking() {
         networkInfo = "";
         ping = "";
@@ -31,6 +32,7 @@ public class Networking {
         transmitRate = "";
     }
 
+    //Gets the information of the connected network and defines the instance variables
     private void refresh() throws IOException {
         networkInfo = "";
         ProcessBuilder builder = new ProcessBuilder("cmd.exe", "/c", "Netsh WLAN show interfaces");
@@ -56,6 +58,7 @@ public class Networking {
         }
     }
 
+    //Pings google's server and defines the ping variable
     private void ping() throws IOException{
         ping = "";
         String line = "";
@@ -69,7 +72,7 @@ public class Networking {
         ping = line.substring(46);
     }
 
-
+    //Converts the ping into an int
     public int getRawPing() throws IOException {
         ping();
         String tmp = ping.substring(0,ping.length()-2).replaceAll("\\s","").replaceAll("[^\\d.]", "");
@@ -77,12 +80,14 @@ public class Networking {
         return rawPing;
     }
 
+    //Gets the network receive rate as a double
     public double rawReceive() throws IOException {
         refresh();
         recieveRate = recieveRate.replaceAll("[^\\d.]", "");
         return Double.parseDouble(recieveRate);
     }
 
+    //Gets the network transmit rate as a double
     public double rawTransmit() throws IOException {
         refresh();
         transmitRate = transmitRate.replaceAll("[^\\d.]","");

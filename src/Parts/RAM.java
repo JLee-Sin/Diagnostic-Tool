@@ -11,6 +11,7 @@ public class RAM {
     //The amount of ram formatted into gigabytes
     private int ramInGB;
 
+    //Defines the amount of ram
     public RAM() {
         ramSize = ((com.sun.management.OperatingSystemMXBean) ManagementFactory.getOperatingSystemMXBean()).getTotalPhysicalMemorySize();
         ramInGB = (int) (ramSize/1000000000);

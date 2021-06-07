@@ -64,7 +64,7 @@ public class Home extends Screens{
     private Label recBench;
     private Label lateBench;
 
-
+    //Sets the variables for the home screen
     public Home() {
         c = Storage.getCpu();
         g = Storage.getGpu();
@@ -80,6 +80,7 @@ public class Home extends Screens{
         return pane;
     }
 
+    //Creates the home screen
     @Override
     public void setPane() {
         //shapes
@@ -325,6 +326,7 @@ public class Home extends Screens{
         thread.start();
     }
 
+    //Starts an infinite loop that constantly update the temperature of the each component
     private void liveUpdate() {
         while(true) {
             c.updateTemp();
@@ -346,6 +348,7 @@ public class Home extends Screens{
         }
     }
 
+    //Sets the status of operating system on the home screen based on previous scans
     private void setStatus() throws IOException {
         status = new Label(sys.checkForPreviousScan());
         status.setFont(new Font(64));

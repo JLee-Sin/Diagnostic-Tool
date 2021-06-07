@@ -34,6 +34,7 @@ public class TestScreen extends Screens{
     //The tester variable that allows the user to stress test and benchmark their system as well as save the results
     private Tester t;
 
+    //sets the cpu and tester variables
     public TestScreen() {
         c = Storage.getCpu();
         t = Storage.getStress();
@@ -44,6 +45,7 @@ public class TestScreen extends Screens{
         return pane;
     }
 
+    //Sets the test screen
     @Override
     public void setPane() {
         ArrayList<Rectangle> rectangleArrayList = new ArrayList<>();
@@ -72,6 +74,7 @@ public class TestScreen extends Screens{
         setRight();
     }
 
+    //A helper method for the right side of the screen
     private void setRight() {
         Label title = new Label("Stress Test");
         title.setFont(Font.font("Verdana", FontWeight.BLACK,12));
@@ -117,6 +120,7 @@ public class TestScreen extends Screens{
         stress.setTranslateY(75);
     }
 
+    //A helper method for the left side of the screen
     private void setLeft() {
         Label title = new Label("Benchmark");
         title.setFont(Font.font("Verdana", FontWeight.BLACK,12));

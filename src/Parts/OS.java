@@ -22,6 +22,7 @@ public class OS {
     //The file used for saving the OS's status
     private File file;
 
+    //Gathers information about the operating system
     public OS() {
         Name = System.getProperty("os.name");
         OSver = System.getProperty("os.version");
@@ -38,6 +39,7 @@ public class OS {
         }
     }
 
+    //Runs the health check
     private boolean checkForHealth() throws IOException {
         ProcessBuilder builder = new ProcessBuilder("cmd.exe", "/c", "sfc /scannow");
         builder.redirectErrorStream(true);
@@ -85,6 +87,7 @@ public class OS {
         }
     }
 
+    //Saves the operating system's status
     private void save(int score) throws IOException {
         try (DataOutputStream dos = new DataOutputStream(new FileOutputStream(file))) {
             dos.flush();
@@ -95,6 +98,7 @@ public class OS {
         }
     }
 
+    //Reports the saved status
     private int read() throws IOException {
         if (!new File("./Sys.txt").canRead()) {
             return 3;
@@ -106,6 +110,7 @@ public class OS {
         }
     }
 
+    //Checks for previous scans
     public String checkForPreviousScan() throws IOException {
         int i = read();
         if(i == 0 || i == 1) {

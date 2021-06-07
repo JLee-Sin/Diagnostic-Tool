@@ -15,6 +15,7 @@ public class GPU extends coreComponents{
     //The name of the gpu
     private String Name;
 
+    //Defines the system's gpu
     public GPU() {
         Components components = JSensors.get.components();
         List<Gpu> gpus = components.gpus;
@@ -44,6 +45,7 @@ public class GPU extends coreComponents{
         }
     }
 
+    //Updates the gpu's temp
     public void updateTemp() {
         List<Gpu> gpus = JSensors.get.components().gpus;
         if(gpus.size() > 0) {
